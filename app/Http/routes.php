@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('profile', 'HomeController@index');
 });
 
 // 认证路由...
@@ -39,5 +40,5 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::any('/people','HomeController@index');
+    Route::any('/profile','HomeController@index');
 });
