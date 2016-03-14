@@ -1,6 +1,6 @@
     @extends('layout.layout')
 
-    @section('title', 'Microduino开放平台')
+    @section('title', '首页')
 
     @section('header')
     <!-- Plugin CSS -->
@@ -42,7 +42,7 @@
                         <a class="page-scroll" href="#contact">联系</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#">登录</a>
+                        <a class="page-scroll" href="/login">登录</a>
                     </li>
                 </ul>
             </div>
@@ -71,7 +71,7 @@
                     <h2 class="section-heading">使用指南</h2>
                     <hr class="light">
                     <p class="text-faded">安装平台socket客户端，同时将你的开源设备注册到平台上，你就能远程操控你的硬件设备</p>
-                    <a href="#services" class="page-scroll btn btn-default btn-xl">注册</a>
+                    <a href="/register" class="page-scroll btn btn-default btn-xl">注册</a>
                 </div>
             </div>
         </div>
@@ -249,4 +249,14 @@
             </div>
         </div>
     </section>
+    @endsection
+
+    @section('javascript')
+    <!-- Plugin JavaScript -->
+    <script src="{{ asset('scripts/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('scripts/jquery.fittext.js') }}"></script>
+    <script src="{{ asset('scripts/wow.min.js') }}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ asset('scripts/creative.js') }}"></script>
     @endsection

@@ -11,7 +11,7 @@
     <meta name="email" content="qiuye@163.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>@yield('title')</title>
+    <title>@yield('title') Microduino开放平台</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body @yield('bodyStyle')>
 
     @yield('nav')
 
@@ -37,13 +37,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('scripts/bootstrap.min.js') }}"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="{{ asset('scripts/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('scripts/jquery.fittext.js') }}"></script>
-    <script src="{{ asset('scripts/wow.min.js') }}"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('scripts/creative.js') }}"></script>
+    @yield('javascript')
 
 </body>
 
