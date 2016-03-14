@@ -11,7 +11,7 @@
     <meta name="email" content="qiuye@163.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>@yield('title') Microduino开放平台</title>
+    <title>@yield('title') | Microduino开放平台</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">

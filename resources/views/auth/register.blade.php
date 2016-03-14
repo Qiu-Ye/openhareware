@@ -1,11 +1,13 @@
     @extends('layout.layout')
 
+    @section('title', '登录')
+
     @section('header')
 	<!-- BEGIN THEME STYLES --> 
 	<link href="{{ asset('css/style-metronic.css') }}" rel="stylesheet" type="text/css"/>
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css"/>
 	<link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" type="text/css"/>
-	<link href="{{ asset('css/pages/login.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css"/>
 	<!-- END THEME STYLES -->
     @endsection
 
@@ -13,14 +15,14 @@
 
     @section('content')
 	<div class="logo">
-        <!--<img src="{{ asset('img/logo-big.png" alt="" />-->
         <h1 style="color: wheat;">Microduino开放平台</h1>
 	</div>
 	<!-- END LOGO -->
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="/auth/login" method="post">
+		<form class="login-form" action="/login" method="post" style="display:none">
+            {!! csrf_field() !!}
 			<h3 class="form-title">账号登录</h3>
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
@@ -31,7 +33,7 @@
 				<label class="control-label visible-ie8 visible-ie9">用户名</label>
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
-					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="name"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -65,7 +67,8 @@
 		</form>
 		<!-- END LOGIN FORM -->        
 		<!-- BEGIN FORGOT PASSWORD FORM -->
-		<form class="forget-form" action="index.html" method="post">
+		<form class="forget-form" action="index.html" method="post" style="display:none">
+            {!! csrf_field() !!}
 			<h3 >Forget Password ?</h3>
 			<p>请输入您的邮箱地址去重置您的密码.</p>
 			<div class="form-group">
@@ -85,7 +88,8 @@
 		</form>
 		<!-- END FORGOT PASSWORD FORM -->
 		<!-- BEGIN REGISTRATION FORM -->
-		<form class="register-form" action="/auth/register" method="post">
+		<form class="register-form" action="/register" method="post">
+            {!! csrf_field() !!}
 			<h3 >注册</h3>
 			<p>请输入您的个人信息</p>
 			<div class="form-group">
@@ -122,7 +126,7 @@
 				<label class="control-label visible-ie8 visible-ie9">Username</label>
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
-					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="账户名" name="username"/>
+					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="账户名" name="name"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -137,7 +141,7 @@
 				<div class="controls">
 					<div class="input-icon">
 						<i class="fa fa-check"></i>
-						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="请确认密码" name="rpassword"/>
+						<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="请确认密码" name="password_confirmation"/>
 					</div>
 				</div>
 			</div>
