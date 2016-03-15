@@ -30,6 +30,10 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/profile';
 
+    protected $redirectPath = '/profile';
+
+    protected $redirectAfterLogout = '/a';
+
     protected $username = 'name';
 
     /**

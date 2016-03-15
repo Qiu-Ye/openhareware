@@ -42,7 +42,16 @@
                         <a class="page-scroll" href="#contact">联系</a>
                     </li>
                     <li>
+                        @if (Auth::check())
+                        <a class="dropdown" href="">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/backend/auth/logout') }}">Logout</a></li>
+                            </ul>
+                        </a>
+                        @else
                         <a class="page-scroll" href="/login">登录</a>
+                        @endif
                     </li>
                 </ul>
             </div>

@@ -45,7 +45,7 @@
 			</div>
 			<div class="form-actions">
 				<label class="checkbox">
-				<input type="checkbox" name="remember" value="1"/> 记住我
+				<input type="checkbox" name="remember" value="0"/> 记住我
 				</label>
 				<button type="submit" class="btn green pull-right">
 				登录 <i class="m-icon-swapright m-icon-white"></i>

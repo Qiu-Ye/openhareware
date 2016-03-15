@@ -21,18 +21,9 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="/login" method="post">
+		<form class="login-form" action="/login" method="post" style="display:none">
             {!! csrf_field() !!}
 			<h3 class="form-title">账号登录</h3>
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul style="color:red;">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                    </ul>
-                </div>
-            @endif
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>请输入用户名和密码</span>
@@ -54,7 +45,7 @@
 			</div>
 			<div class="form-actions">
 				<label class="checkbox">
-				<input type="checkbox" name="remember"/> 记住我
+				<input type="checkbox" name="remember" value="0"/> 记住我
 				</label>
 				<button type="submit" class="btn green pull-right">
 				登录 <i class="m-icon-swapright m-icon-white"></i>
@@ -76,7 +67,7 @@
 		</form>
 		<!-- END LOGIN FORM -->        
 		<!-- BEGIN FORGOT PASSWORD FORM -->
-		<form class="forget-form" action="index.html" method="post" style="display:none">
+		<form class="forget-form" action="index.html" method="post">
             {!! csrf_field() !!}
 			<h3 >Forget Password ?</h3>
 			<p>请输入您的邮箱地址去重置您的密码.</p>
