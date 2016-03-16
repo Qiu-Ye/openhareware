@@ -21,6 +21,19 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
+//首页
+//Route::any('/', 'HomeController@index');
+Route::get('/', function () {
+    if(Auth::check()){
+        $a = '<a href="/logout">退出</a>';
+        $user = Auth::user();
+        $a.=$user['name'];
+    }else{
+        $a = '<a href="/login">登录</a>';
+    return view('layout.index');
+    }
+    return $a;
+});
 
 //认证登录相关
 Route::group(['middleware' => ['web']], function () {
@@ -29,45 +42,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('login', 'Auth\AuthController@postLogin');
     //Route::get('logout', 'Auth\AuthController@getLogout');
     Route::get('logout', 'Auth\AuthController@logout');
-
-    //Route::controllers([
-    //    'login', 'Auth\AuthController',
-    //]);
-});
-
-    Route::any('/a',function () {
-        return 'a';
-    });
-    Route::any('/x',function () {
-        return Auth::logout();
-    });
-
-
-// 登录验证...
-Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::get('/', function () {
-        //return view('layout.index');
-        if(Auth::check()){
-            $a = '<a href="/logout">退出</a>';
-            $user = Auth::user();
-            $a.=$user['name'];
-        }else{
-            $a = '<a href="/login">登录</a>';
-        }
-        return $a;
-    });
-
-    Route::any('/profile','UserController@profile');
-    //Route::any('/profile',function () {
-    //    return Request::all();
-    //});
-    Route::any('/aa',function () {
-        print_r(Request::all());
-        return 'aa';
-    });
-    Route::any('/b',function () {
-        return 'b';
-    });
 
     // 注册路由...
     Route::get('register', 'Auth\AuthController@getRegister');
@@ -80,4 +54,30 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     // 密码重置路由
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
     Route::post('password/reset', 'Auth\PasswordController@postReset');
+});
+
+
+// 登录验证
+Route::group(['middleware' => ['web', 'auth']], function () {
+    //Route::get('/', function () {
+    //    //return view('layout.index');
+    //    if(Auth::check()){
+    //        $a = '<a href="/logout">退出</a>';
+    //        $user = Auth::user();
+    //        $a.=$user['name'];
+    //    }else{
+    //        $a = '<a href="/login">登录</a>';
+    //    }
+    //    return $a;
+    //});
+
+    Route::any('/profile','UserController@profile');
+
+    Route::any('/aa',function () {
+        print_r(Request::all());
+        return 'aa';
+    });
+    Route::any('/b',function () {
+        return 'b';
+    });
 });

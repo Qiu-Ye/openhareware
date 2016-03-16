@@ -50,7 +50,7 @@
                             </ul>
                         </a>
                         @else
-                        <a class="page-scroll" href="/login">登录</a>
+                        <a class="page-scroll" href="/profile">登录</a>
                         @endif
                     </li>
                 </ul>

@@ -19,7 +19,9 @@
 	</div>
 	<!-- BEGIN LOGIN -->
 	<div class="content">
+
         @yield('form')
+
 	</div>
 	<!-- END LOGIN -->
 	<!-- BEGIN COPYRIGHT -->
