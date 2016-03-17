@@ -14,7 +14,7 @@
     <title>@yield('title') | Microduino开放平台</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap/bootstrap.min.css') }}" type="text/css">
 
      @yield('header')
 
@@ -32,10 +32,10 @@
     @yield('content')
 
     <!-- jQuery -->
-    <script src="{{ asset('scripts/jquery.js') }}"></script>
+    <script src="{{ asset('lib/jquery/jquery.js') }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('scripts/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('lib/bootstrap/bootstrap.min.js') }}"></script>
 
     @yield('javascript')
 

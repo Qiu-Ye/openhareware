@@ -34,7 +34,7 @@
 
     @section('javascript')
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
-	<script src="{{ asset('plugins/jquery.validate.min.js') }}" type="text/javascript"></script>	
+	<script src="{{ asset('lib/jquery/jquery.validate.min.js') }}" type="text/javascript"></script>	
 	<!-- END PAGE LEVEL PLUGINS -->
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="{{ asset('scripts/login.js') }}" type="text/javascript"></script> 
@@ -46,4 +46,3 @@
 	</script>
 	<!-- END JAVASCRIPTS -->
     @endsection
-

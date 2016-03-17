@@ -11,6 +11,7 @@ class UserController extends Controller
     //
     public function profile(Request $request){
         $user = $request->user();
-        echo $user['name'].'登录成功';
+        //echo $user['name'].'登录成功';
+        return view('workspace.master',$user);
     }
 }

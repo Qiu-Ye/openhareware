@@ -262,8 +262,8 @@
 
     @section('javascript')
     <!-- Plugin JavaScript -->
-    <script src="{{ asset('scripts/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('scripts/jquery.fittext.js') }}"></script>
+    <script src="{{ asset('lib/jquery/jquery.easing.min.js') }}"></script>
+    <script src="{{ asset('lib/jquery/jquery.fittext.js') }}"></script>
     <script src="{{ asset('scripts/wow.min.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
