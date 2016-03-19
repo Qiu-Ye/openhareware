@@ -1,21 +1,33 @@
-    @extends('layout.layout')
+<!DOCTYPE html>
+<html lang="en">
 
-    @section('title', '个人主页')
+<head>
 
-    @section('header')
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An open platform for Microduino">
+    <meta name="author" content="xieqiu">
+    <meta name="email" content="qiuye@163.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>@yield('title') | Microduino开放平台</title>
+
     <link href="{{ asset('css/application.min.css') }}" rel="stylesheet">
-    @endsection
 
-    @section('bodyStyle', 'class="background-dark"')
+     @yield('header')
 
-    @section('content')
+</head>
+
+<body @yield('bodyStyle')>
+
 <div class="logo">
-    <h4><a href="index.html"><strong>Microduino</strong>开放平台</a></h4>
+    <h4><a href="/index"><strong>Microduino</strong>开放平台</a></h4>
 </div>
 <nav id="sidebar" class="sidebar nav-collapse collapse">
     <ul id="side-nav" class="side-nav">
         <li class="active">
-            <a href="index.html"><i class="fa fa-home"></i> <span class="name">设备操作</span></a>
+            <a href="/index"><i class="fa fa-home"></i> <span class="name">设备操作</span></a>
         </li>
         <li class="panel">
             <a class="accordion-toggle collapsed" data-toggle="collapse"
@@ -26,7 +38,7 @@
             </ul>
         </li>
         <li class="panel">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="#stats-collapse"><i class="fa fa-bar-chart-o"></i> <span class="name">操作日志</span></a>
+            <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/log"><i class="fa fa-bar-chart-o"></i> <span class="name">操作日志</span></a>
             <ul id="stats-collapse" class="panel-collapse collapse">
                 <li><a href="stat_statistics.html">Stats</a></li>
                 <li><a href="stat_charts.html">Charts</a></li>
@@ -37,7 +49,7 @@
             <a class="accordion-toggle collapsed" data-toggle="collapse"
                data-parent="#side-nav" href="#ui-collapse"><i class="fa fa-magic"></i> <span class="name">用户中心</span></a>
             <ul id="ui-collapse" class="panel-collapse collapse">
-                <li><a href="ui_buttons.html">Buttons</a></li>
+                <li><a href="/profile">用户信息</a></li>
                 <li><a href="ui_dialogs.html">Dialogs</a></li>
                 <li><a href="ui_icons.html">Icons</a></li>
                 <li><a href="ui_tabs.html">Tabs</a></li>
@@ -241,13 +253,13 @@
         </div>
     </header>
     <div class="content container">
-        @yield('workcontent')
+
+        @yield('content')
+
     </div>
 </div>
-    @endsection
+    @yield('javascript')
 
-    @section('javascript')
-<script src="{{ asset('lib/jquery/jquery-2.0.3.min.js') }}"></script>
 <!-- jquery plugins -->
 <script src="{{ asset('lib/icheck.js/jquery.icheck.js') }}"></script>
 <script src="{{ asset('lib/jquery/jquery-ui-1.10.3.custom.js') }}"></script>
@@ -256,16 +268,6 @@
 <script src="{{ asset('lib/backbone/underscore-min.js') }}"></script>
 <script src="{{ asset('lib/backbone/backbone-min.js') }}"></script>
 <script src="{{ asset('lib/backbone/backbone.localStorage-min.js') }}"></script>
-
-<!-- bootstrap default plugins -->
-<script src="{{ asset('lib/bootstrap/transition.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/collapse.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/alert.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/tooltip.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/popover.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/button.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/tab.js') }}"> </script>
-<script src="{{ asset('lib/bootstrap/dropdown.js') }}"></script>
 
 <!-- basic application js-->
 <script src="{{ asset('scripts/app.js') }}"></script>
@@ -341,6 +343,3 @@
     <% } %>
 </script>
 
-    @yield('pagescript')
-
-    @endsection
