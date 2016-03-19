@@ -30,7 +30,7 @@ Route::get('/', function () {
         $a.=$user['name'];
     }else{
         $a = '<a href="/login">登录</a>';
-    return view('layout.index');
+        return view('layout.index');
     }
     return $a;
 });
@@ -73,11 +73,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::any('/profile','UserController@profile');
 
-    Route::any('/aa',function () {
-        print_r(Request::all());
-        return 'aa';
-    });
-    Route::any('/b',function () {
-        return 'b';
-    });
+    Route::resource('/device','DeviceController');
 });

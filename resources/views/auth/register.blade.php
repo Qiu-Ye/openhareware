@@ -32,7 +32,7 @@
 				<label class="control-label visible-ie8 visible-ie9">电话号码</label>
 				<div class="input-icon">
 					<i class="fa fa-location-arrow"></i>
-					<input class="form-control placeholder-no-fix" type="text" placeholder="telephone" name="city"/>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="telephone" name="telephone"/>
 				</div>
 			</div>
 			<p>请输入您的账户信息如下</p>
