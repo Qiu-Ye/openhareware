@@ -1,10 +1,7 @@
-    @section('title', '登录')
+@extends('workspace.master')
 
-    @section('bodyStyle', 'class="background-dark"')
+@section('workcontent')
+@endsection
 
-    @section('content')
-    @endsection
-
-    @section('javascript')
-    @endsection
-
+@section('pagescript')
+@endsection

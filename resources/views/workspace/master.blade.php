@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+    @extends('layout.layout')
 
-<head>
+    @section('title', '个人主页')
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="An open platform for Microduino">
-    <meta name="author" content="xieqiu">
-    <meta name="email" content="qiuye@163.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>@yield('title') | Microduino开放平台</title>
-
+    @section('header')
     <link href="{{ asset('css/application.min.css') }}" rel="stylesheet">
+    @endsection
 
-     @yield('header')
+    @section('bodyStyle', 'class="background-dark"')
 
-</head>
-
-<body @yield('bodyStyle')>
-
+    @section('content')
 <div class="logo">
     <h4><a href="/index"><strong>Microduino</strong>开放平台</a></h4>
 </div>
@@ -190,8 +178,8 @@
                     </li>
                     <li class="divider"></li>
                     <li class="hidden-xs">
-                        <a href="#" id="设置"
-                           title="Settings"
+                        <a href="#" id="settings"
+                           title="设置"
                            data-toggle="popover"
                            data-placement="bottom">
                             <i class="fa fa-cog"></i>
@@ -253,13 +241,12 @@
         </div>
     </header>
     <div class="content container">
-
-        @yield('content')
-
+        @yield('workcontent')
     </div>
 </div>
-    @yield('javascript')
+    @endsection
 
+    @section('javascript')
 <!-- jquery plugins -->
 <script src="{{ asset('lib/icheck.js/jquery.icheck.js') }}"></script>
 <script src="{{ asset('lib/jquery/jquery-ui-1.10.3.custom.js') }}"></script>
@@ -274,55 +261,31 @@
 <script src="{{ asset('scripts/settings.js') }}"></script>
 
 <!-- page specific -->
-<script src="{{ asset('scripts/index.js') }}"></script>
-
-<script type="text/template" id="message-template">
-        <div class="sender pull-left">
-            <div class="icon">
-                <img src="img/2.jpg" class="img-circle" alt="">
-            </div>
-            <div class="time">
-                just now
-            </div>
-        </div>
-        <div class="chat-message-body">
-            <span class="arrow"></span>
-            <div class="sender">Tikhon Laninga</div>
-            <div class="text">
-                <%- text %>
-            </div>
-        </div>
-</script>
+    @yield('pagescript')
 
 <script type="text/template" id="settings-template">
     <div class="setting clearfix">
-        <div>Background</div>
+        <div>背景</div>
         <div id="background-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
             <% dark = background == 'dark'; light = background == 'light';%>
-            <button type="button" data-value="dark" class="btn btn-sm btn-transparent <%= dark? 'active' : '' %>">Dark</button>
-            <button type="button" data-value="light" class="btn btn-sm btn-transparent <%= light? 'active' : '' %>">Light</button>
+            <button type="button" data-value="dark" class="btn btn-sm btn-transparent <%= dark? 'active' : '' %>">暗色</button>
+            <button type="button" data-value="light" class="btn btn-sm btn-transparent <%= light? 'active' : '' %>">亮色</button>
         </div>
     </div>
     <div class="setting clearfix">
-        <div>Sidebar on the</div>
+        <div>侧边栏显示在</div>
         <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
             <% onRight = sidebar == 'right'%>
-            <button type="button" data-value="left" class="btn btn-sm btn-transparent <%= onRight? '' : 'active' %>">Left</button>
-            <button type="button" data-value="right" class="btn btn-sm btn-transparent <%= onRight? 'active' : '' %>">Right</button>
+            <button type="button" data-value="left" class="btn btn-sm btn-transparent <%= onRight? '' : 'active' %>">左边</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-transparent <%= onRight? 'active' : '' %>">右边</button>
         </div>
     </div>
     <div class="setting clearfix">
-        <div>Sidebar</div>
+        <div>侧边栏</div>
         <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
             <% display = displaySidebar%>
-            <button type="button" data-value="true" class="btn btn-sm btn-transparent <%= display? 'active' : '' %>">Show</button>
-            <button type="button" data-value="false" class="btn btn-sm btn-transparent <%= display? '' : 'active' %>">Hide</button>
-        </div>
-    </div>
-    <div class="setting clearfix">
-        <div>White Version</div>
-        <div>
-            <a href="white/" class="btn btn-sm btn-transparent">&nbsp; Switch &nbsp;   <i class="fa fa-angle-right"></i></a>
+            <button type="button" data-value="true" class="btn btn-sm btn-transparent <%= display? 'active' : '' %>">显示</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-transparent <%= display? '' : 'active' %>">隐藏</button>
         </div>
     </div>
 </script>
@@ -342,4 +305,4 @@
             class="btn btn-transparent btn-sm">展开</button>
     <% } %>
 </script>
-
+    @endsection
