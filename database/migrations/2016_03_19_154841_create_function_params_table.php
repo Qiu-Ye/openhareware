@@ -18,6 +18,7 @@ class CreateFunctionParamsTable extends Migration
             $table->integer('function_id');
             $table->string('name');
             $table->string('full_name');
+            $table->text('desc')->default('');
             $table->string('type');
             $table->string('limit');
             $table->timestamps();

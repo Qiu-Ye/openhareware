@@ -17,7 +17,7 @@ class CreateDeviceFunctionTable extends Migration
             $table->integer('device_id');
             $table->string('name');
             $table->string('full_name');
-            $table->text('name')->default('');
+            $table->text('desc')->default('');
             $table->timestamps();
         });
     }

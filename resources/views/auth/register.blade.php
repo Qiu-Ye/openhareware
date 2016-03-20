@@ -10,7 +10,7 @@
 				<label class="control-label visible-ie8 visible-ie9">姓名</label>
 				<div class="input-icon">
 					<i class="fa fa-font"></i>
-					<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname"/>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="full_name"/>
 				</div>
 			</div>
 			<div class="form-group">
