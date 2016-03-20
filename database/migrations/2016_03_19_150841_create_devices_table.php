@@ -15,7 +15,7 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->text('desc');
+            $table->text('desc')->default('');
             $table->string('token');
             $table->softDeletes();
             $table->timestamps();

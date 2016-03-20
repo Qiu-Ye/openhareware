@@ -14,6 +14,10 @@ class CreateDeviceFunctionTable extends Migration
     {
         Schema::create('device_function', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('device_id');
+            $table->string('name');
+            $table->string('full_name');
+            $table->text('name')->default('');
             $table->timestamps();
         });
     }
