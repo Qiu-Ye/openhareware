@@ -1,7 +1,7 @@
 $(function(){
     $('.chzn-select').select2();
     $("#destination").mask("99999");
-    $("#credit").mask("9999-9999-9999-9999");
+    //$("#credit").mask("9999-9999-9999-9999");
     $("#expiration-date").datepicker();
     $("#wizard").bootstrapWizard({onTabShow: function(tab, navigation, index) {
         var $total = navigation.find('li').length;
