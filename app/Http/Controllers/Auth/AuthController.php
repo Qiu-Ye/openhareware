@@ -32,7 +32,7 @@ class AuthController extends Controller
 
     protected $redirectPath = '/profile';
 
-    protected $redirectAfterLogout = '/';
+    protected $redirectAfterLogout = '/profile';
 
     protected $username = 'name';
 

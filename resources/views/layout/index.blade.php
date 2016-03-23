@@ -81,6 +81,7 @@
                     <hr class="light">
                     <p class="text-faded">安装平台socket客户端，同时将你的开源设备注册到平台上，你就能远程操控你的硬件设备</p>
                     <a href="/register" class="page-scroll btn btn-default btn-xl">注册</a>
+                    <a href="/login" class="page-scroll btn btn-default btn-xl">登录</a>
                 </div>
             </div>
         </div>

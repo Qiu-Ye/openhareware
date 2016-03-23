@@ -90,24 +90,27 @@
                                         <label class="control-label"  for="function_id">参数ID</label>
                                         <div class="controls form-group">
                                             <div class="col-md-10">
-                                                <input type="text" id="function_id" name="function_id" placeholder="参数id" class="form-control">
-                                                <span class="help-block">请输入函数中参数的id,仅能使用数字和字母</span>
+                                                <div class="input-group">
+                                                    <input type="text" id="function_id" name="function_id" placeholder="参数id" class="form-control">
+                                                    <div class="input-group-btn">
+                                                         <select id="function_id-param" class="selectpicker" data-style="btn-success">
+                                                            <option value="bool">布尔型</option>
+                                                            <option value="int">数值型</option>
+                                                            <option value="string">字符串</option>
+                                                         </select>
+                                                         <button type="button" class="btn btn-warning add-function-param"><i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                                <span class="help-block">请输入函数中参数的id和参数类型,仅能使用数字和字母</span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-row control-group">
-                                        <label for="courier" class="control-label">选择参数类型</label>
-                                        <div class="controls form-group">
-                                            <div class="col-md-10"><select id="courier" data-placeholder="请选择函数参数类型" class="select-block-level chzn-select">
-                                                <option value=""></option>
-                                                <option value="bool">布尔型</option>
-                                                <option value="int">数值型</option>
-                                                <option value="string">字符串</option>
-                                            </select>
-                                            <span class="help-block pull-left">请选择函数参数类型,将会影响设备操控形式和调用检验</span></div>
-                                        </div>
-                                    </div>
+                                    <button type="button" class="btn btn-default btn-xs pull-right">
+                                        <i class="fa fa-plus"></i>
+                                        新增函数
+                                    </button>
+
                                 </fieldset>
                             </form>
                         </div>
@@ -115,51 +118,29 @@
                             <form class="form-horizontal" action='' method="POST">
                                 <fieldset>
                                     <div class="control-group">
-                                        <label class="control-label"  for="name">Name on the Card</label>
+                                        <label class="control-label"  for="name">设备Token</label>
                                         <div class="controls form-group">
-                                            <div class="col-md-10"><input type="text" id="name" name="name" placeholder="" class="form-control"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row control-group">
-                                        <label for="credit-card-type" class="control-label">Credit Card Type</label>
-                                        <div class="controls form-group">
-                                            <div class="col-md-10"><select id="credit-card-type" data-placeholder="Please select.." class="chzn-select select-block-level">
-                                                <option value=""></option>
-                                                <option value="Visa">Visa</option>
-                                                <option value="Mastercard">Mastercard</option>
-                                                <option value="Other">Other</option>
-                                            </select></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row control-group ">
-                                        <label class="control-label" for="credit">Credit Card Number </label>
-                                        <div class="controls form-group">
-                                            <div class="col-md-10"><input id="credit" type="text" tabindex="3" class="form-control"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row control-group">
-                                        <label for="expiration-date" class="control-label">Expiration Date</label>
-                                        <div class="controls form-group">
-                                            <div class="col-md-10"><input type="text" id="expiration-date"  class="form-control"></div>
+                                            <div class="col-md-10"><input type="text" id="name" name="name" placeholder="暂无token" disabled="disabled" class="form-control"></div>
+                                            <span class="help-block pull-left">请记住设备Token,用于设备连接到平台</span>
                                         </div>
                                     </div>
                                 </fieldset>
                             </form>
                         </div>
                         <div class="tab-pane" id="tab4">
-                            <h2>Thank you!</h2>
-                            <p>Your submission has been received.</p>
+                            <h2>注册信息填完!</h2>
+                            <p>设备信息检验通过,点击提交完成设备信息注册</p>
                         </div>
                         <div class="description">
                             <ul class="pager wizard">
                                 <li class="previous">
-                                    <button class="btn btn-primary pull-left"><i class="fa fa-caret-left"></i> Previous</button>
+                                    <button class="btn btn-primary pull-left"><i class="fa fa-caret-left"></i> 上一步</button>
                                 </li>
                                 <li class="next">
-                                    <button class="btn btn-primary pull-right" >Next <i class="fa fa-caret-right"></i></button>
+                                    <button class="btn btn-primary pull-right" type="submit" >下一步 <i class="fa fa-caret-right"></i></button>
                                 </li>
                                 <li class="finish" style="display: none">
-                                    <button class="btn btn-success pull-right" >Finish <i class="fa fa-check"></i></button>
+                                    <button class="btn btn-success pull-right" type="submit" >提交 <i class="fa fa-check"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -174,10 +155,8 @@
 
 @section('pagescript')
 <!-- page jquery plugins -->
-<script src="{{ asset('lib/select2.js') }}"></script>
 <script src="{{ asset('lib/jquery/jquery.bootstrap.wizard.js') }}"></script>
 <script src="{{ asset('lib/jquery/jquery.maskedinput.js') }}"></script>
-<script src="{{ asset('lib/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('lib/bootstrap-select/bootstrap-select.js') }}"></script>
 
 <script src="{{ asset('scripts/wizard.js') }}"></script>
