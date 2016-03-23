@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Model\Devices;
+
 class DeviceController extends Controller
 {
     /**
@@ -26,6 +28,7 @@ class DeviceController extends Controller
     public function create()
     {
         //
+        return view('workspace.add_device');
     }
 
     /**
@@ -37,6 +40,14 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
+        $device = new Devices;
+        $device->name = '';
+        if($device->save()){
+            return redirect()->url();
+        }else{
+            abort(503);
+        }
     }
 
     /**

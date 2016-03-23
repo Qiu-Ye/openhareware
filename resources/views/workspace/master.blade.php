@@ -28,9 +28,9 @@
         <li class="panel">
             <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#side-nav" href="/log"><i class="fa fa-bar-chart-o"></i> <span class="name">操作日志</span></a>
             <ul id="stats-collapse" class="panel-collapse collapse">
-                <li><a href="stat_statistics.html">Stats</a></li>
-                <li><a href="stat_charts.html">Charts</a></li>
-                <li><a href="stat_realtime.html">Realtime</a></li>
+                <li><a href="stat_statistics.html">登录日志</a></li>
+                <li><a href="stat_charts.html">设备连接日志</a></li>
+                <li><a href="stat_realtime.html">设备操作日志</a></li>
             </ul>
         </li>
         <li class="panel">
@@ -38,14 +38,11 @@
                data-parent="#side-nav" href="#ui-collapse"><i class="fa fa-magic"></i> <span class="name">用户中心</span></a>
             <ul id="ui-collapse" class="panel-collapse collapse">
                 <li><a href="/profile">用户信息</a></li>
-                <li><a href="ui_dialogs.html">Dialogs</a></li>
-                <li><a href="ui_icons.html">Icons</a></li>
-                <li><a href="ui_tabs.html">Tabs</a></li>
-                <li><a href="ui_accordion.html">Accordion</a></li>
+                <li><a href="ui_dialogs.html">个人信息完善</a></li>
             </ul>
         </li>
         <li class="visible-xs">
-            <a href="login.html"><i class="fa fa-sign-out"></i> <span class="name">Sign Out</span></a>
+            <a href="login.html"><i class="fa fa-sign-out"></i> <span class="name">登出</span></a>
         </li>
     </ul>
     <div id="sidebar-settings" class="settings">
@@ -213,7 +210,7 @@
                             <li role="presentation">
                                 <a href="#" class="link">
                                     <i class="fa fa-inbox"></i>
-                                    Inbox
+                                    设备操作
                                 </a>
                             </li>
                         </ul>
@@ -240,7 +237,7 @@
                 </div>
         </div>
     </header>
-    <div class="content container">
+    <div class="content container" style="width: 1102px;">
         @yield('workcontent')
     </div>
 </div>
