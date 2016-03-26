@@ -50,7 +50,20 @@ $(function(){
         $wizard.find('.progress-bar').css({width:$percent+'%'});
 
         if($current == $total-1){
-            ;
+            var device_name = $('#device_name').val();
+            var device_id = $('#device_id').val();
+            $.post("/api/calToken",{
+                device_name:device_name,
+                device_id:device_id,
+            },function(data,status) {
+                if(status == 'success'){
+                    if(){
+                        $('#token').val(data);
+                        return;
+                    }
+                }
+                alert('遇到未知错误,请联系管理员');
+            });
         }
 
         if($current >= $total) {
@@ -74,9 +87,5 @@ $(function(){
         paramInit();
         addParamInit();
         });
-
-
-    //提交表单
-
 
 });

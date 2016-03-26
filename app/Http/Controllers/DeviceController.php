@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
 use App\Model\Devices;
 
 class DeviceController extends Controller
@@ -18,6 +19,11 @@ class DeviceController extends Controller
     public function index()
     {
         //
+        $user = Auth::user();
+        //$device=Devices::where('user_id',$user->id)->get();
+        $device=Devices::all();
+        //$device=Devices::where('user_id',$user->id)->simplePaginate(5);
+        dd($device);
     }
 
     /**

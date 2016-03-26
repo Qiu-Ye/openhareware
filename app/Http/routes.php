@@ -75,3 +75,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::resource('/device','DeviceController');
 });
+
+Route::group(['prefix' => 'api', 'middleware' => ['api']], function() {
+    Route::any('/calToken','ApiController@calToken');
+});

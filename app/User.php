@@ -23,4 +23,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 查找人员的设备信息
+     *
+     * @return Model
+     */
+    public function devices(){
+        return $this->hasMany('App\Model\Devices','user_id');
+    }
 }

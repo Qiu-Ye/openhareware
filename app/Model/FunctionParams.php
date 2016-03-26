@@ -18,4 +18,22 @@ class FunctionParams extends Model
         'type',
         'limit',
     ];
+
+    /**
+     * 查找方法所属的设备信息
+     *
+     * @return Model
+     */
+    public function devices(){
+        return $this->belongsTo('App\Model\Devices','device_id');
+    }
+
+    /**
+     * 查找方法所属的设备信息
+     *
+     * @return Model
+     */
+    public function devicefunction(){
+        return $this->hasMany('App\Model\FunctionParams','function_id');
+    }
 }

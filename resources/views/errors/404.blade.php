@@ -16,8 +16,8 @@
                 </div>
                 <div class="col-md-7">
                     <div class="description">
-                        <h3>Opps, it seems that this page does not exist here.</h3>
-                        <p>If you are sure it should, search for it.</p>
+                        <h3>你似乎来到了设备的荒漠,无法找到你要的页面</h3>
+                        <p>请确定你要找的网页地址</p>
                     </div>
                 </div>
             </div>

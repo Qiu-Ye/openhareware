@@ -17,6 +17,8 @@
                 </h4>
             </header>
             <div class="body">
+                <form class="form-horizontal form-condensed" action='{{ url("device") }}' method="POST">
+                {!! csrf_field() !!}
                 <div id="wizard" class="form-wizard">
                     <ul class="wizard-navigation nav-justified">
                         <li><a href="#tab1" data-toggle="tab"><small>1.</small><strong>设备描述</strong></a></li>
@@ -28,8 +30,6 @@
                         <div class="progress-bar progress-bar-inverse"></div>
                     </div>
                     <div class="tab-content">
-                        <form class="form-horizontal form-condensed" action='{{ url("device") }}' method="POST">
-                        {!! csrf_field() !!}
                         <div class="tab-pane" id="tab1">
                                 <fieldset>
                                     <div class="control-group">
@@ -120,7 +120,14 @@
                                     <div class="control-group">
                                         <label class="control-label"  for="token">设备Token</label>
                                         <div class="controls form-group">
-                                            <div class="col-md-10"><input type="text" id="token" name="token" placeholder="暂无token" disabled="disabled" class="form-control"></div>
+                                            <div class="col-md-10">
+                                                <div class="input-group">
+                                                    <input type="text" id="token" name="token" placeholder="暂无token" disabled="disabled" class="form-control">
+                                                    <div class="input-group-btn">
+                                                         <button type="button" class="btn btn-warning add-function-param" data-funNo="1"><i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <span class="help-block pull-left">请记住设备Token,用于设备连接到平台</span>
                                         </div>
                                     </div>
@@ -133,19 +140,19 @@
                         <div class="description">
                             <ul class="pager wizard">
                                 <li class="previous">
-                                    <button class="btn btn-primary pull-left"><i class="fa fa-caret-left"></i> 上一步</button>
+                                    <button class="btn btn-primary pull-left" onclick ="return false;"><i class="fa fa-caret-left"></i> 上一步</button>
                                 </li>
                                 <li class="next">
-                                    <button class="btn btn-primary pull-right" >下一步 <i class="fa fa-caret-right"></i></button>
+                                    <button class="btn btn-primary pull-right" onclick ="return false;">下一步 <i class="fa fa-caret-right"></i></button>
                                 </li>
                                 <li class="finish" style="display: none">
                                     <button class="btn btn-success pull-right" type="submit" >提交 <i class="fa fa-check"></i></button>
                                 </li>
                             </ul>
                         </div>
-                        </form>
                     </div>
                 </div>
+                </form>
             </div>
             </section>
         </div>
