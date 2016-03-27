@@ -14,8 +14,17 @@ use App\Model\FunctionParams;
 
 class DeviceController extends Controller
 {
+
+    /**
+     *
+     * @ Auth::user
+     */
     protected $user;
 
+    /**
+     * construct of the resource.
+     *
+     */
     public function __construct(){
         $this->user = Auth::user();
     }
@@ -27,12 +36,8 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
-        $user = Auth::user();
-        //$device=Devices::where('user_id',$user->id)->get();
-        $device=Devices::with('devicefunction','devicefunction.params')->all();
-        //$device=Devices::where('user_id',$user->id)->simplePaginate(5);
-        dd($device);
+        $devices = Devices::with('devicefunction','devicefunction.params')->where('user_id',$this->user->id)->paginate(3);;
+        return view('workspace.device_list',['devices' =>$devices]);
     }
 
     /**
@@ -84,16 +89,14 @@ class DeviceController extends Controller
                     $functionParam->save();
                 }
             }
-
             DB::commit();
         }
         catch(Exception $e){
             DB::rollBack();
             throw $e;
         }
-        echo 'ok';
 
-        //return redirect()->route('device.index');
+        return redirect()->route('device.index');
     }
 
     /**
@@ -105,7 +108,8 @@ class DeviceController extends Controller
     public function show($id)
     {
         //
-        $device = Devices::find($id);
+        $device = Devices::with('devicefunction','devicefunction.params')->find($id);
+        return view('workspace.device_detail',['device' =>$device]);
     }
 
     /**
