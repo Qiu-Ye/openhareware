@@ -13,6 +13,7 @@ class ApiController extends Controller
         $deviceId = $request['device_id'];
         $deviceName = $request['device_name'];
         //return bcrypt($deviceId.'-'.$deviceName);
-        return md5($deviceId.'-'.$deviceName);
+        $return = md5($deviceId.'-'.$deviceName);
+        return response()->json(array('status' => 0, 'data' => $return));
     }
 }

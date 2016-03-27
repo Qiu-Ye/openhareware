@@ -20,7 +20,7 @@ class CreateFunctionParamsTable extends Migration
             $table->string('full_name')->default('');
             $table->text('desc')->default('');
             $table->string('type');
-            $table->string('limit');
+            $table->string('limit')->default('');
             $table->timestamps();
         });
     }

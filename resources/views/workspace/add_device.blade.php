@@ -68,32 +68,32 @@
                                 <fieldset>
                                     <legend>函数信息</legend>
                                     <div class="control-group">
-                                    <label for="function[1]function_name" class="control-label">函数名</label>
+                                    <label for="function[1][function_name]" class="control-label">函数名</label>
                                     <div class="controls form-group">
                                             <div class="col-md-10">
-                                                <input type="text" id="function[1]function_name" name="function[1]function_name" placeholder="函数名" class="form-control">
+                                                <input type="text" id="function[1][function_name]" name="function[1][function_name]" placeholder="函数名" class="form-control">
                                                 <span class="help-block">函数名用于识别设备函数,可包含数字、字母、中文</span>
                                             </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"  for="function[1]function_id">函数ID</label>
+                                        <label class="control-label"  for="function[1][function_id]">函数ID</label>
                                         <div class="controls form-group">
                                             <div class="col-md-10">
-                                                <input type="text" id="function[1]function_id" name="function[1]function_id" placeholder="函数id" class="form-control">
+                                                <input type="text" id="function[1][function_id]" name="function[1][function_id]" placeholder="函数id" class="form-control">
                                                 <span class="help-block">请输入设备中函数识别的id,仅能使用数字和字母</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label"  for="function[1]param[1]param_id">参数ID</label>
+                                        <label class="control-label"  for="function[1][param][1][param_id]">参数ID</label>
                                         <div class="controls form-group">
                                             <div class="col-md-10">
                                                 <div class="input-group" style="margin-bottom:10px">
-                                                    <input type="text" id="function[1]param[1]param_id" name="function[1]param[1]param_id" placeholder="参数id" class="form-control">
+                                                    <input type="text" id="function[1][param][1][param_id]" name="function[1][param][1][param_id]" placeholder="参数id" class="form-control">
                                                     <div class="input-group-btn">
-                                                         <select id="function[1]param[1]param_type" class="selectpicker" data-style="btn-success" name="function[1]param[1]param_type">
+                                                         <select id="function[1][param][1][param_type]" class="selectpicker" data-style="btn-success" name="function[1][param][1][param_type]">
                                                             <option value="bool">布尔型</option>
                                                             <option value="int">数值型</option>
                                                             <option value="string">字符串</option>
@@ -118,16 +118,9 @@
                         <div class="tab-pane" id="tab3">
                                 <fieldset>
                                     <div class="control-group">
-                                        <label class="control-label"  for="token">设备Token</label>
+                                        <label class="control-label"  for="devicetoken">设备Token</label>
                                         <div class="controls form-group">
-                                            <div class="col-md-10">
-                                                <div class="input-group">
-                                                    <input type="text" id="token" name="token" placeholder="暂无token" disabled="disabled" class="form-control">
-                                                    <div class="input-group-btn">
-                                                         <button type="button" class="btn btn-warning add-function-param" data-funNo="1"><i class="fa fa-plus"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="col-md-10"><input type="text" id="devicetoken" name="devicetoken" placeholder="暂无token" disabled="disabled" class="form-control"></div>
                                             <span class="help-block pull-left">请记住设备Token,用于设备连接到平台</span>
                                         </div>
                                     </div>

@@ -7,10 +7,19 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Auth;
+use DB;
 use App\Model\Devices;
+use App\Model\DeviceFunction;
+use App\Model\FunctionParams;
 
 class DeviceController extends Controller
 {
+    protected $user;
+
+    public function __construct(){
+        $this->user = Auth::user();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +30,7 @@ class DeviceController extends Controller
         //
         $user = Auth::user();
         //$device=Devices::where('user_id',$user->id)->get();
-        $device=Devices::all();
+        $device=Devices::with('devicefunction','devicefunction.params')->all();
         //$device=Devices::where('user_id',$user->id)->simplePaginate(5);
         dd($device);
     }
@@ -46,14 +55,45 @@ class DeviceController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request);
-        $device = new Devices;
-        $device->name = '';
-        if($device->save()){
-            return redirect()->url();
-        }else{
-            abort(503);
+        //dd($request);
+        DB::beginTransaction();
+        try{
+            $device = new Devices;
+            $device->user_id = $this->user->id;
+            $device->name = $request['device_id'];
+            $device->full_name = $request['device_name'];
+            $device->desc = $request['device_desc'];
+            $device->token = md5($request['device_id'].'-'.$request['device_name']);
+            $device->save();
+
+            $functionArr = $request['function'];
+            foreach($functionArr as $functionTmp){
+                $deviceFunction = new DeviceFunction;
+                $deviceFunction->name = $functionTmp['function_id'];
+                $deviceFunction->full_name = $functionTmp['function_name'];
+                $deviceFunction->device_id = $device->id;
+                $deviceFunction->save();
+
+                $paramArr = $functionTmp['param'];
+                foreach($paramArr as $paramTmp){
+                    $functionParam = new FunctionParams;
+                    $functionParam->name = $paramTmp['param_id'];
+                    $functionParam->type = $paramTmp['param_type'];
+                    $functionParam->device_id = $device->id;
+                    $functionParam->function_id = $deviceFunction->id;
+                    $functionParam->save();
+                }
+            }
+
+            DB::commit();
         }
+        catch(Exception $e){
+            DB::rollBack();
+            throw $e;
+        }
+        echo 'ok';
+
+        //return redirect()->route('device.index');
     }
 
     /**
@@ -65,6 +105,7 @@ class DeviceController extends Controller
     public function show($id)
     {
         //
+        $device = Devices::find($id);
     }
 
     /**
