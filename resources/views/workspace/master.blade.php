@@ -15,14 +15,14 @@
 <nav id="sidebar" class="sidebar nav-collapse collapse">
     <ul id="side-nav" class="side-nav">
         <li class="active">
-            <a href="/index"><i class="fa fa-home"></i> <span class="name">设备操作</span></a>
+            <a href="{{ route('device.index') }}"><i class="fa fa-home"></i> <span class="name">设备操作</span></a>
         </li>
         <li class="panel">
             <a class="accordion-toggle collapsed" data-toggle="collapse"
                data-parent="#side-nav" href="#forms-collapse"><i class="fa fa-edit"></i> <span class="name">设备管理</span></a>
             <ul id="forms-collapse" class="panel-collapse collapse">
-                <li><a href="form_account.html">新增设备</a></li>
-                <li><a href="form_article.html">设备列表</a></li>
+                <li><a href="{{ route('device.create') }}">新增设备</a></li>
+                <li><a href="{{ route('device.index') }}">设备列表</a></li>
             </ul>
         </li>
         <li class="panel">

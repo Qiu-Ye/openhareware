@@ -109,7 +109,11 @@ class DeviceController extends Controller
     {
         //
         $device = Devices::with('devicefunction','devicefunction.params')->find($id);
-        return view('workspace.device_detail',['device' =>$device]);
+        if($this->user->id == $device->user_id){
+            return view('workspace.device_detail',['device' =>$device]);
+        }else{
+            return abort(403);
+        }
     }
 
     /**

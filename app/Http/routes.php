@@ -71,7 +71,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     //    return $a;
     //});
 
-    Route::any('/profile','UserController@profile');
+    Route::any('/profile','DeviceController@index');
 
     Route::resource('/device','DeviceController');
 });

@@ -20,6 +20,7 @@
                         <blockquote>
                             这里展示了所有你注册到平台上的设备信息
                         </blockquote>
+                        @if(!empty($devices[0]))
                         <table id="device_list" class="table table-striped">
                             <thead>
                             <tr>
@@ -34,48 +35,45 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($devices as $device)
-                            <tr>
-                                <td>{{ $device->id }}</td>
-                                <td><i class="fa fa-qrcode fa-2x"></i></td>
-                                <td><strong>{{ $device->full_name }}</strong></td>
-                                <td>{{ $device->name }}</td>
-                                <td>{{ $device->desc }}</td>
-                                <td>{{ $device->token }}</td>
-                                <td class="hidden-phone-landscape">{{ $device->created_at }}</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" onclick="location.href='{{ url("device").'/'.$device->id }}'">
-                                        功能调用
-                                    </button>
-                                    <button class="btn btn-sm btn-warning" data-toggle="model" data-target="#del-device-{{ $device->id }}">
-                                        删除设备
-                                    </button>
-                                </td>
-                            </tr>
-                                    <div id="del-device-{{ $device->id }}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="del-device-{{ $device->id }}Label">
-                                      <div class="modal-dialog modal-sm" aria-hidden="true">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">Modal title</h4>
-                                          </div>
-                                          <div class="modal-body">
-                                            <p>One fine body&hellip;</p>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                            @endforeach
+                                @foreach($devices as $device)
+                                <tr>
+                                    <td>{{ $device->id }}</td>
+                                    <td><i class="fa fa-qrcode fa-2x"></i></td>
+                                    <td><strong>{{ $device->full_name }}</strong></td>
+                                    <td>{{ $device->name }}</td>
+                                    <td>{{ $device->desc }}</td>
+                                    <td>{{ $device->token }}</td>
+                                    <td class="hidden-phone-landscape">{{ $device->created_at }}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" onclick="location.href='{{ url("device").'/'.$device->id }}'">
+                                            功能调用
+                                        </button>
+                                        <button class="btn btn-sm btn-warning" data-toggle="model" data-target="#del-device-{{ $device->id }}">
+                                            删除设备
+                                        </button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <div style="float:right;font-weight:bold">
                         {!! $devices->render() !!}
                         </div>
-                    </div>
+
+                            @foreach($devices as $device)
+                                    <div id="del-device-{{ $device->id }}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="del-device-{{ $device->id }}Label">
+                                      <div class="modal-dialog modal-sm" aria-hidden="true">
+                                        <div class="modal-content">
+                                                        ...
+                                        </div>
+                                      </div>
+                                    </div>
+                            @endforeach
+                    @else
+                        <p>没找到设备,请前往注册页面注册设备</p>
+                    @endif
+
+                    </div><!--end of body-->
                 </section>
             </div>
         </div>
