@@ -1,4 +1,4 @@
-    @extends('layout.layout')
+    @extends('workspace.layout')
 
     @section('title', '个人主页')
 
@@ -14,14 +14,30 @@
 </div>
 <nav id="sidebar" class="sidebar nav-collapse collapse">
     <ul id="side-nav" class="side-nav">
-        <li class="active">
+    @if((Request::fullUrl() == route('device.index')) || (Request::fullUrl() == url('profile'))) 
+        <li class="active"> 
+    @else 
+        <li> 
+    @endif
             <a href="{{ route('device.index') }}"><i class="fa fa-home"></i> <span class="name">设备操作</span></a>
         </li>
-        <li class="panel">
+    @if(Request::fullUrl() == route('device.create')) 
+        <li class="active panel"> 
+            <a class="accordion-toggle" data-toggle="collapse"
+               data-parent="#side-nav" href="#forms-collapse"><i class="fa fa-edit"></i> <span class="name">设备管理</span></a>
+            <ul id="forms-collapse" class="panel-collapse collapse in">
+    @else 
+        <li class="panel"> 
             <a class="accordion-toggle collapsed" data-toggle="collapse"
                data-parent="#side-nav" href="#forms-collapse"><i class="fa fa-edit"></i> <span class="name">设备管理</span></a>
             <ul id="forms-collapse" class="panel-collapse collapse">
-                <li><a href="{{ route('device.create') }}">新增设备</a></li>
+    @endif
+    @if(Request::fullUrl() == route('device.create')) 
+        <li class="active"> 
+    @else 
+        <li> 
+    @endif
+                <a href="{{ route('device.create') }}">新增设备</a></li>
                 <li><a href="{{ route('device.index') }}">设备列表</a></li>
             </ul>
         </li>
@@ -252,6 +268,16 @@
 <script src="{{ asset('lib/backbone/underscore-min.js') }}"></script>
 <script src="{{ asset('lib/backbone/backbone-min.js') }}"></script>
 <script src="{{ asset('lib/backbone/backbone.localStorage-min.js') }}"></script>
+
+<script src="{{ asset('lib/bootstrap/transition.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/dropdown.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/collapse.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/alert.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/tooltip.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/popover.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/button.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/modal.js') }}"></script>
+<script src="{{ asset('lib/bootstrap/tab.js') }}"></script>
 
 <!-- basic application js-->
 <script src="{{ asset('scripts/app.js') }}"></script>

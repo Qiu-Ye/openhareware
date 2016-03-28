@@ -74,6 +74,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::any('/profile','DeviceController@index');
 
     Route::resource('/device','DeviceController');
+
+    Route::any('/a',function(){
+        echo Request::fullUrl();
+        return route('device.index');
+    });
 });
 
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function() {
