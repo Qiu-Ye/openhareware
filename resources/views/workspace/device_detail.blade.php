@@ -74,7 +74,7 @@
                                                         </span>
                                                     </label>
                                                 @else
-                                                <input type="text" id="{{ $function->name.$param->name }}" class="form-control">
+                                                <input type="text" id="{{ $function->name.$param->name }}" class="form-control" style="width:200px;">
                                                 @endif
                                             </div>
                                         </div>
