@@ -156,6 +156,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        zgldh\workerboy\WorkerBoyServiceProvider::class,
+
     ],
 
     /*

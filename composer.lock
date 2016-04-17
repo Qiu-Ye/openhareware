@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ea1fee525914154e6d6bbf071697b5a1",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "854707f8125999363d464dadf44a8fcd",
+    "content-hash": "9ec07bb20df186d6ebe97ae120dfa1ae",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1776,6 +1776,52 @@
                 "environment"
             ],
             "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "zgldh/workerboy",
+            "version": "v0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zgldh/workerboy.git",
+                "reference": "a370e18160494245b4c377467cfd2b335a6137d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zgldh/workerboy/zipball/a370e18160494245b4c377467cfd2b335a6137d4",
+                "reference": "a370e18160494245b4c377467cfd2b335a6137d4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-sockets": "*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "zgldh\\workerboy\\": "src/"
+                },
+                "classmap": [
+                    "libs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "zgldh",
+                    "email": "zgldh@hotmail.com"
+                }
+            ],
+            "description": "Workerman 3 for Laravel 5.",
+            "keywords": [
+                "Socket",
+                "laravel",
+                "websocket server",
+                "workerman"
+            ],
+            "time": "2015-06-15 08:39:38"
         }
     ],
     "packages-dev": [
