@@ -8,7 +8,7 @@ return array(
     'credential_processor' => 'zgldh\workerboy\CredentialProcessor', //凭证处理器，用于同步web服务器和socket服务器的用户session
 
     'applications'         => array(        // 请仿照下面将自己建立的Workerman3应用的start.php文件路径填进去
-        'app/WorkermanApps/Demo/start.php' => array(
+        'app/WorkermanApps/ArduinoServer/start.php' => array(
             'store' => array(
                 'driver'    => 'file',
                 // 'file', 'memcache'
@@ -31,7 +31,15 @@ return array(
                     'charset'  => 'utf8',
                 )
             )
-        )
+        ),
+        //'app/WorkermanApps/ArduinoServer/start.php' => array(
+        //    'store' => array(
+        //        'driver'    => 'file',
+        //        //'storePath' => sys_get_temp_dir() . '/workerman-ArduinoServer/' //每一个application的目录都应该不一样
+        //        'storePath' => '/tmp/workerman-ArduinoServer/' //每一个application的目录都应该不一样
+        //        // 仅对 driver == 'file' 启用. 默认放在系统临时目录。
+        //    ),
+        //)
 //        ,'app/WorkermanApps/Chat/start.php'=>array(...) 这是第二个应用，请仿照仿照上面填写。但具体地址、路径一定不要完全一样。否则会混乱
     )
 );

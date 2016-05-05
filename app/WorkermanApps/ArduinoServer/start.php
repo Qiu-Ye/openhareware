@@ -6,7 +6,7 @@ use \GatewayWorker\Gateway;
 use \GatewayWorker\BusinessWorker;
 
 // gateway 进程
-$gateway = new Gateway("Websocket://0.0.0.0:8585");
+$gateway = new Gateway("Websocket://192.168.56.99:8082");
 // 名称，以便status时查看方便
 $gateway->name = 'TodpoleGateway';
 // 开启的进程数，建议与cpu核数相同

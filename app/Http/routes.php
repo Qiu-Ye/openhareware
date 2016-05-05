@@ -77,7 +77,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::any('/a',function(){
         echo Request::fullUrl();
-        return route('device.index');
+        dd(Auth::user());
+        //return route('device.index');
     });
 });
 

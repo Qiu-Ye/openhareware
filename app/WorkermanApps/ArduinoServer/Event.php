@@ -2,8 +2,8 @@
 /**
  *
  * 主逻辑
- * 主要是处理 onMessage onClose 三个方法
- * @author walkor <walkor@workerman.net>
+ * 主要是处理 onMessage onClose 两个方法
+ * @author xieqiu <qiuye90@163.com>
  *
  */
 use \GatewayWorker\Lib\Gateway;
@@ -26,6 +26,9 @@ class Event
         $workerBoy = \zgldh\workerboy\WorkerBoy::getInstance();
 
         switch ($messageData['type']) {
+            case 'userlogin':
+                Gateway::sendToCurrentClient('aadasdfa');
+                break;
             case 'login':
 //                Workerboy v0.15 的新功能，可以根据前端传来的凭证找到对应的用户ID
 //                详见： https://github.com/zgldh/workerboy
