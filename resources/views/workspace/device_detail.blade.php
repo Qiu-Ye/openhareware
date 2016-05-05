@@ -138,7 +138,7 @@ function onopen()
 {
     // 登录
     var login_data = '{"type":"userlogin","name":"'+name+'","token":"'+token+'"}';
-    console.log("websocket握手成功，发送登录数据:"+login_data);
+    //console.log("websocket握手成功，发送登录数据:"+login_data);
     ws.send(login_data);
 }
 
@@ -150,6 +150,10 @@ function onmessage(e)
     var data = eval("("+e.data+")");
     switch(data['type']){
         // 服务端ping客户端
+        case 'response':
+            console.log(data['msg']);
+            //alert('done');
+            break;
         case 'ping':
             ws.send('{"type":"pong"}');
             break;;
