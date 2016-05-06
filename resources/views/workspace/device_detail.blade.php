@@ -112,7 +112,8 @@
 <script src="{{ asset('lib/bootstrap/bootstrap-switch.js') }}"></script>
 <script type="text/javascript">
 var ws = {};
-var link = "ws://192.168.56.99:8083";
+//var link = "ws://192.168.56.99:8083";
+var link = "ws://10.205.6.167:8082";
 var name = "{{ Auth::user()->name }}";
 var token = "{{ Auth::user()->remember_token }}";
 
@@ -149,11 +150,11 @@ function onmessage(e)
     return;
     var data = eval("("+e.data+")");
     switch(data['type']){
-        // 服务端ping客户端
         case 'response':
             console.log(data['msg']);
             //alert('done');
             break;
+        // 服务端ping客户端
         case 'ping':
             ws.send('{"type":"pong"}');
             break;;
