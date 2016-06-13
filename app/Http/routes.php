@@ -84,4 +84,5 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
 Route::group(['prefix' => 'api', 'middleware' => ['api']], function() {
     Route::any('/calToken','ApiController@calToken');
+    Route::any('/test','ApiController@test');
 });

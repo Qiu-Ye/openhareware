@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-1">
             <section class="widget">
             <header>
                 <h4>
@@ -22,9 +22,10 @@
                 <div id="wizard" class="form-wizard">
                     <ul class="wizard-navigation nav-justified">
                         <li><a href="#tab1" data-toggle="tab"><small>1.</small><strong>设备描述</strong></a></li>
-                        <li><a href="#tab2" data-toggle="tab"><small>2.</small> <strong>功能注册</strong></a></li>
-                        <li><a href="#tab3" data-toggle="tab"><small>3.</small> <strong>Token发放</strong></a></li>
-                        <li><a href="#tab4" data-toggle="tab"><small>4.</small> <strong>注册成功</strong></a></li>
+                        <li><a href="#tab2" data-toggle="tab"><small>2.</small> <strong>上传配置</strong></a></li>
+                        <li><a href="#tab3" data-toggle="tab"><small>3.</small> <strong>功能注册</strong></a></li>
+                        <li><a href="#tab4" data-toggle="tab"><small>4.</small> <strong>Token发放</strong></a></li>
+                        <li><a href="#tab5" data-toggle="tab"><small>5.</small> <strong>注册成功</strong></a></li>
                     </ul>
                     <div id="bar" class="progress progress-small">
                         <div class="progress-bar progress-bar-inverse"></div>
@@ -64,7 +65,28 @@
                                     </div>
                                 </fieldset>
                         </div>
+
                         <div class="tab-pane" id="tab2">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <!-- device_receive -->
+                                        <label class="control-label"  for="device_receive">设备接收参数</label>
+                                        <div class="controls form-group">
+                                            <div class="col-md-10">
+                                                <div class="input-group" style="margin-bottom:10px">
+                                                    <input type="text" id="device_receive[]" name="device_receive[]" placeholder="接收参数" class="form-control">
+                                                    <div class="input-group-btn">
+                                                        <button type="button" class="btn btn-warning add-receive-param" data-revno='1'><i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                                <span class="help-block">请输入关于这个设备的接收参数,用于设备上传参数</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                        </div>
+
+                        <div class="tab-pane" id="tab3">
                                 <fieldset>
                                     <legend>函数信息</legend>
                                     <div class="control-group">
@@ -115,7 +137,7 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane" id="tab3">
+                        <div class="tab-pane" id="tab4">
                                 <fieldset>
                                     <div class="control-group">
                                         <label class="control-label"  for="devicetoken">设备Token</label>
@@ -126,7 +148,7 @@
                                     </div>
                                 </fieldset>
                         </div>
-                        <div class="tab-pane" id="tab4">
+                        <div class="tab-pane" id="tab5">
                             <h2>注册信息填完!</h2>
                             <p>设备信息检验通过,点击提交完成设备信息注册</p>
                         </div>

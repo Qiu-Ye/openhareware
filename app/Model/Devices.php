@@ -27,6 +27,16 @@ class Devices extends Model
     }
 
     /**
+     * 查找设备接收参数信息
+     *
+     * @return Model
+     */
+    public function recparams(){
+        return $this->hasMany('App\Model\ReceiveParams','device_id');
+    }
+
+
+    /**
      * 查找设备的主人
      *
      * @return Model

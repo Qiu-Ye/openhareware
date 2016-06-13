@@ -21,6 +21,14 @@ function addParamInit() {
     });
 }
 
+function addReceiveParam(){
+    $('.add-receive-param').click(function() {
+        //var num = $(this).attr('data-revno');
+        var recParam = '<input type="text" id="device_receive[]" name="device_receive[]" placeholder="接收参数" class="form-control" style="margin-bottom:10px">';
+        $(this).parents('div.input-group').after(recParam);
+    });
+}
+
 //TODO:加号放在最后
 //TODO:删除符号
 /*
@@ -39,6 +47,8 @@ $(function(){
     //var function_fieldset = $('#device_function_fieldset');
 
     paramInit();
+
+    addReceiveParam();
 
     addParamInit();
 

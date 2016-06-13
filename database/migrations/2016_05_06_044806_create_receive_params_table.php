@@ -12,8 +12,13 @@ class CreateReceiveParamsTable extends Migration
      */
     public function up()
     {
-        Schema::table('receive_params', function (Blueprint $table) {
-            //
+        Schema::create('receive_params', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('device_id');
+            $table->string('name');
+            $table->string('unit');
+            $table->text('desc')->default('');
+            $table->timestamps();
         });
     }
 

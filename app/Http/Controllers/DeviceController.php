@@ -11,6 +11,7 @@ use DB;
 use App\Model\Devices;
 use App\Model\DeviceFunction;
 use App\Model\FunctionParams;
+use App\Model\ReceiveParams;
 
 class DeviceController extends Controller
 {
@@ -36,7 +37,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        $devices = Devices::with('devicefunction','devicefunction.params')->where('user_id',$this->user->id)->paginate(3);;
+        $devices = Devices::with('devicefunction','devicefunction.params')->where('user_id',$this->user->id)->paginate(10);
         return view('workspace.device_list',['devices' =>$devices]);
     }
 
@@ -89,6 +90,16 @@ class DeviceController extends Controller
                     $functionParam->save();
                 }
             }
+
+            $recParamArr = $request['device_receive'];
+            foreach($recParamArr as $recParamTem){
+                $recParam = new ReceiveParams();
+                $recParam->device_id = $device->id;
+                $recParam->name = $recParamTem;
+                $recParam->unit = '';
+                $recParam->desc = '';
+                $recParam->save();
+            }
             DB::commit();
         }
         catch(Exception $e){
@@ -108,7 +119,7 @@ class DeviceController extends Controller
     public function show($id)
     {
         //
-        $device = Devices::with('devicefunction','devicefunction.params')->find($id);
+        $device = Devices::with('devicefunction','recparams','devicefunction.params')->find($id);
         if($this->user->id == $device->user_id){
             return view('workspace.device_detail',['device' =>$device]);
         }else{
